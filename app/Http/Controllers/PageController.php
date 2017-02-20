@@ -15,5 +15,15 @@ class PageController extends Controller
 		$data['email'] = "yuexia19@gmail.com";
 		return view('about') -> withData($data);
 	}
+
+	public function getMovies(){
+	
+		return view('movies');
+	}
+
+	public function getContact(){
+		
+		return view('contact');
+	}
 }
 

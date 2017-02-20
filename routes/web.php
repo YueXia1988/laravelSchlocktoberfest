@@ -14,3 +14,24 @@
 Route::get('/', 'PageController@getIndex');
 
 Route::get('/about', 'PageController@getAbout');
+
+Route::get('/movies', 'PageController@getMovies');
+
+Route::get('/contact', 'PageController@getContact');
+
+Route::resource('/movies','MoviesController');
+
+Route::get('/movies/{movie}', ['as'=>'movies.featured',
+							'uses'=>'MoviesController@getFeaturedmovie']);
+
+
+Route::POST('/movies/{suggestmovie}', [
+		'as'=>'movies.suggestmovie',
+		'uses'=>'MoviesController@postSuggestMovie'
+
+	]);
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
