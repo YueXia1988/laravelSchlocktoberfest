@@ -5,9 +5,11 @@
 	<div class="row">
 		<h1>{{$movie->title}}</h1>
 		<p>Released year{{$movie->year}}</p>
+		<p><img src="{{asset(url('images/original/'.$movie->poster))}}"></p>
 		<p>{{$movie->description}}</p>
+		
 	</div>	
-
+@if(! Auth::guest())
 @if (Auth::user()->role === 'admin')
 	
 	 <div class="row">
@@ -22,5 +24,6 @@
 	</div>
 	</form>
 	</div>
+@endif
 @endif
 @endsection
